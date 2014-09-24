@@ -1,20 +1,21 @@
-public class Cargo<K,V> {
-    private K id_cargo;
-    private V name;
+public class Cargo<K,V> implements iCargo {
+    public final K id_cargo;
+    public final V name;
 
-    public K getId_cargo() {
-        return id_cargo;
-    }
+    private Integer placeId;
 
-    public void setId_cargo(K id_cargo) {
+    public Cargo(K id_cargo, V name) {
         this.id_cargo = id_cargo;
-    }
-
-    public V getName() {
-        return name;
-    }
-
-    public void setName(V name) {
         this.name = name;
+    }
+
+    @Override
+    public void takePlace(Integer placeId) {
+        this.placeId = placeId;
+    }
+
+    @Override
+    public Integer getPlaceId() {
+        return placeId;
     }
 }
